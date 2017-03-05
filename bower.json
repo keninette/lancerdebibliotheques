@@ -1,0 +1,21 @@
+{
+  "name": "php_lancer_de_bibliotheque",
+  "homepage": "https://github.com/keninette/lancerdebibliotheques",
+  "authors": [
+    "keninette bobby johnny (kbj) <keninette.bloggeusedeluxe@gmail.com>"
+  ],
+  "description": "A website to create your own rpg character sheet and turn it into a fillable pdf",
+  "main": "index.php",
+  "license": "beerware",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}

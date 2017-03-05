@@ -6,6 +6,3 @@
  * and open the template in the editor.
  */
 
-echo "plop";
-?>
-<p>PLOPIPLOP</p>
