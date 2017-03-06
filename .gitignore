@@ -3,3 +3,4 @@
 /vendor/*
 /bower_components/*
 composer.phar
+nbproject/*
