@@ -1,6 +1,7 @@
 {
     "require": {
         "psr/log": "^1.0",
-        "psliwa/php-pdf": "*"
+        "psliwa/php-pdf": "*",
+        "mpdf/mpdf": "^6.1"
     }
 }
