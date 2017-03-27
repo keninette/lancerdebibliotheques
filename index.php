@@ -26,4 +26,5 @@ require_once __DIR__ . '/vendor/autoload.php';
 </html>
  
 <script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="js/kbj_grid/draw.js"></script>
+<script src="js/grid_functions.js"></script>
+<script src="js/grid.js"></script>
