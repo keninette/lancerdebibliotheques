@@ -82,6 +82,20 @@ function getClosestLines(currentGridLine, currentCursorPosition, maxPosition, li
         , "biggerLinePosition"  : 0
     };
     
+    // If currentCursorPosition is not with grid coordinates
+    // We must stick to the grid so we force those coordinates
+    // If currentCursorPosition is smaller than first grid line position
+    // Force it to first grid line position
+    if (currentCursorPosition <= currentGridLine) {
+        positions.biggerLinePosition    = currentGridLine;
+        positions.smallerLinePosition   = currentGridLine;
+    // If currentCursorPosition is bigger than maxPosition
+    // Then force it to max Position
+    } else if (currentCursorPosition >= maxPosition) {
+        positions.biggerLinePosition    = maxPosition;
+        positions.smallerLinePosition   = maxPosition;
+    }
+    
     while (positions.biggerLinePosition === 0 
             && currentGridLine <= maxPosition) {
         
@@ -118,9 +132,9 @@ function getClosestLines(currentGridLine, currentCursorPosition, maxPosition, li
  */
 function findClosestValue(cursorPosition, gridLinePositions) {
     
-    // If both values are equal, cursor is already on grid
+    // If both values are equal, return one of the two values
     if (gridLinePositions.smallerLinePosition ===  gridLinePositions.biggerLinePosition) {
-        return cursorPosition;
+        return gridLinePositions.smallerLinePosition;
     
     // Else find which position is closer to cursorPosition
     } else {
