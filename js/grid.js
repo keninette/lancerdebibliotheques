@@ -11,12 +11,50 @@ $(function(){
     // Draw grid in canva
     drawGrid(gridData);
     
-    // Set canva hover function
-    // And get mouse and grid position on Document
-    $("#grid").mousemove(function(e){
-        var x = e.pageX;
-        var y = e.pageY;
-                
-        setMagnetControl(x, y, gridData);
-    });
+    // Interact with drag&droppable divs
+    interact(".dragndrop")
+            .origin("self")
+            .draggable({
+                // allow multiple drags on the same element
+                maxPerElement: Infinity
+            })
+            .on("dragmove", function(event){
+                $(this).top = Document.pageY;
+                $(this).left = Document.pageX;
+            })
+            .dropzone({
+                accept: "#grid"
+            });
+    
+    /*interact('.rainbow-pixel-canvas')
+  .origin('self')
+  .draggable({
+    snap: {
+        targets: [ interact.createSnapGrid({
+          x: pixelSize, y: pixelSize
+        }) ]
+    },
+    // allow multiple drags on the same element
+    maxPerElement: Infinity
+  })
+  // draw colored squares on move
+  .on('dragmove', function (event) {
+    var context = event.target.getContext('2d'),
+        // calculate the angle of the drag direction
+        dragAngle = 180 * Math.atan2(event.dx, event.dy) / Math.PI;
+
+    // set color based on drag angle and speed
+    context.fillStyle = 'hsl(' + dragAngle + ', 86%, '
+                        + (30 + Math.min(event.speed / 1000, 1) * 50) + '%)';
+
+    // draw squares
+    context.fillRect(event.pageX - pixelSize / 2, event.pageY - pixelSize / 2,
+                     pixelSize, pixelSize);
+  })
+  // clear the canvas on doubletap
+  .on('doubletap', function (event) {
+    var context = event.target.getContext('2d');
+
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+  });*/
 });
